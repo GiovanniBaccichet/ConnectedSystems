@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Giovanni Baccichet",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -51.25,
+      "left": 13.15,
+      "attrs": { "cyw43": "1", "env": "micropython" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -230.1,
+      "left": 167.4,
+      "attrs": { "temperature": "19.2", "humidity": "45.5" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -197.6,
+      "left": -122.58,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 51.2,
+      "left": -200.8,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "pico:GND.4", "ldr1:GND", "black", [ "h0" ] ],
+    [ "dht1:GND", "pico:GND.5", "black", [ "v0" ] ],
+    [ "ldr1:VCC", "pico:3V3", "red", [ "h0" ] ],
+    [ "pir1:GND", "pico:GND.2", "black", [ "v0" ] ],
+    [ "pir1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "pir1:OUT", "pico:GP5", "yellow", [ "v0" ] ],
+    [ "dht1:SDA", "pico:GP15", "yellow", [ "v0" ] ],
+    [ "dht1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "ldr1:AO", "pico:GP28", "yellow", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
